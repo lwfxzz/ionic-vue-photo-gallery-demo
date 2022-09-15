@@ -2,16 +2,24 @@
   <div id="container">
     <strong>{{ name }}</strong>
     <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <div>platform：{{platform}}</div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { Capacitor } from '@capacitor/core';
 
 export default defineComponent({
   name: 'ExploreContainer',
   props: {
     name: String
+  },
+  setup() {
+    const platform = Capacitor.getPlatform();
+    return {
+      platform
+    }
   }
 });
 </script>
